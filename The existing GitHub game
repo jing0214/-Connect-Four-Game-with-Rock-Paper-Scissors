@@ -2,9 +2,8 @@ from turtle import *
 
 from freegames import line
 
-turns = {'red': 'yellow', 'yellow': 'red'}
-state = {'player': 'yellow', 'rows': [0] * 8}
-
+turns = {'lightcoral': 'greenyellow', 'greenyellow': 'lightcoral'}
+state = {'player': 'greenyellow', 'rows': [0] * 8}
 
 def grid():
     "Draw Connect Four grid."
@@ -17,7 +16,7 @@ def grid():
         for y in range(-175, 200, 50):
             up()
             goto(x, y)
-            dot(40, 'white')
+            dot(40, 'lavenderblush')
 
     update()
 
