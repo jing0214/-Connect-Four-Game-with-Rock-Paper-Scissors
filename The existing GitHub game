@@ -2,6 +2,12 @@ from turtle import *
 
 from freegames import line
 
+print('Connect Four with Rock, Paper, Scissors description:\n 1. Two players play Rock, Paper, Scissors with each other\n\tThe winner, Player A, will go first. \n\
+ 2. The second player, Player B, plays Rock, Paper, Scissors with the computer\n\tIf computer wins, then Player A plays against the computer. \n\t\
+Take turn playing against the computer until it loses. The player who wins gets a turn. \n\
+ 3. Before each player\'s turn, repeat step 2 \n\
+ 4. Keep on going until a player connects 4 of the same colored dots in a row ')
+
 turns = {'lightcoral': 'greenyellow', 'greenyellow': 'lightcoral'}
 state = {'player': 'greenyellow', 'rows': [0] * 8}
 
