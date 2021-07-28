@@ -45,7 +45,7 @@ class Connect_Four:
 
         rows[row] = count + 1
         
-                computer = "WINS"
+        computer = "WINS"
         times_of_playing = 0
         while computer == "WINS":
             user_action = input("Enter a choice (rock, paper, scissors): ")
@@ -80,9 +80,9 @@ class Connect_Four:
         else:
             state['player'] = turns[player]
 
-setup(420, 420, 370, 0)
-hideturtle()
-tracer(False)
-grid()
-onscreenclick(tap)
-done()
+    setup(420, 420, 370, 0)
+    hideturtle()
+    tracer(False)
+    grid()
+    onscreenclick(tap)
+    done()
