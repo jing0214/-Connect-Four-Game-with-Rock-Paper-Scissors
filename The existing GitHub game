@@ -44,9 +44,41 @@ class Connect_Four:
         update()
 
         rows[row] = count + 1
+        
+                computer = "WINS"
+        times_of_playing = 0
+        while computer == "WINS":
+            user_action = input("Enter a choice (rock, paper, scissors): ")
+            possible_actions = ["rock", "paper", "scissors"]
+            computer_action = random.choice(possible_actions)
+            print(f"\nYou chose {user_action}, computer chose {computer_action}.\n")
 
-    state['player'] = turns[player]
+            if user_action == computer_action:
+                print(f"Both players selected {user_action}. It's a tie! The other player's turn.\n")
+            elif user_action == "rock":
+                if computer_action == "scissors":
+                    print("Rock smashes scissors! You win!\n")
+                    computer = "LOSES"
+                else:
+                    print("Paper covers rock! You lose. The other player's turn. \n")
+            elif user_action == "paper":
+                if computer_action == "rock":
+                    print("Paper covers rock! You win!\n")
+                    computer = "LOSES"
+                else:
+                    print("Scissors cuts paper! You lose. The other player's turn.\n")
+            elif user_action == "scissors":
+                if computer_action == "paper":
+                    print("Scissors cuts paper! You win!\n")
+                    computer = "LOSES"
+                else:
+                    print("Rock smashes scissors! You lose. The other player's turn.\n")
+            times_of_playing +=1
 
+        if times_of_playing % 2 == 0:
+             player = state['player']
+        else:
+            state['player'] = turns[player]
 
 setup(420, 420, 370, 0)
 hideturtle()
