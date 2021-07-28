@@ -1,6 +1,6 @@
 from turtle import *
-
 from freegames import line
+import random
 
 print('Connect Four with Rock, Paper, Scissors description:\n 1. Two players play Rock, Paper, Scissors with each other\n\tThe winner, Player A, will go first. \n\
  2. The second player, Player B, plays Rock, Paper, Scissors with the computer\n\tIf computer wins, then Player A plays against the computer. \n\t\
@@ -11,39 +11,40 @@ Take turn playing against the computer until it loses. The player who wins gets 
 turns = {'lightcoral': 'greenyellow', 'greenyellow': 'lightcoral'}
 state = {'player': 'greenyellow', 'rows': [0] * 8}
 
-def grid():
-    "Draw Connect Four grid."
-    bgcolor('light blue')
+class Connect_Four:
+    def grid():
+        "Draw Connect Four grid."
+        bgcolor('deepskyblue')
 
-    for x in range(-150, 200, 50):
-        line(x, -200, x, 200)
+        for x in range(-150, 200, 50):
+            line(x, -200, x, 200)
 
-    for x in range(-175, 200, 50):
-        for y in range(-175, 200, 50):
-            up()
-            goto(x, y)
-            dot(40, 'lavenderblush')
+        for x in range(-175, 200, 50):
+            for y in range(-175, 200, 50):
+                up()
+                goto(x, y)
+                dot(40, 'lavenderblush')
 
-    update()
+        update()
 
+    def tap(x, y):
+        "Draw red or yellow circle in tapped row."
+        player = state['player']
+        rows = state['rows']
 
-def tap(x, y):
-    "Draw red or yellow circle in tapped row."
-    player = state['player']
-    rows = state['rows']
+        row = int((x + 200) // 50)
+        count = rows[row]
 
-    row = int((x + 200) // 50)
-    count = rows[row]
+        x = ((x + 200) // 50) * 50 - 200 + 25
+        y = count * 50 - 200 + 25
 
-    x = ((x + 200) // 50) * 50 - 200 + 25
-    y = count * 50 - 200 + 25
+        up()
+        goto(x, y)
+        dot(40, player)
+        update()
 
-    up()
-    goto(x, y)
-    dot(40, player)
-    update()
+        rows[row] = count + 1
 
-    rows[row] = count + 1
     state['player'] = turns[player]
 
 
